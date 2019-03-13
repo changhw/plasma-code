@@ -89,5 +89,11 @@ for it = 1 : 100 : nstop / ndiag
     jp = jp + 1;
 
 end  
-    writegif(['phase_movie_','t = 0 ~ ',num2str(nstop),'.gif'],F,0.1);
+% writegif(['phase_movie_','t = 0 ~ ',num2str(nstop),'.gif'],F,0.1);
+% avi writer added by Haowei Zhang
+WriterObj=VideoWriter('phase_motion.avi');
+WriterObj.FrameRate = 1.5;
+open(WriterObj);
+writeVideo(WriterObj,F);
+close(WriterObj);
         
